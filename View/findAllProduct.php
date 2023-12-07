@@ -43,13 +43,13 @@ if (isset($_GET['etat'])) {
         <td>$produit[4]</td>
         <td>$produit[5]</td>
         <td><a href='../controller/deleteProduct.php?id=$produit[0]'>Supprimer</a></td>
-        <td><a href='../contoller/update_produit.php?id=$produit[0]'>Edit</a></td>
-        <td><a href='../controller/detail_produit.php?id=$produit[0]'>Voir détail...</a></td>
+        <td><a href='../controller/updateProduct.php?id=$produit[0]'>Edit</a></td>
+        <td><a href='../controller/detailProduct.php?id=$produit[0]'>Voir détail...</a></td>
            </tr>";
         }
 
         echo "</tbody></table>";
-        echo "<a href='add_produit.php' class='btn btn-primary btn-sm'>Ajouter un produit</a>";
+        echo "<a href='../controller/addProduct.php' class='btn btn-primary btn-sm'>Ajouter un produit</a>";
 
         $contenu = ob_get_clean();
         include "layout.php";

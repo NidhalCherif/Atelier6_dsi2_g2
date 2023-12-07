@@ -16,10 +16,29 @@ class CRUD_Produit extends CRUD
     }
 
     function add(produit $p)
-    {   //$libelle=$p->getLibelle();
-        //$sql="insert into produit values(null,"
+    {
+        $sql = "insert into produit values(null,'{$p->getLibelle()}',
+                                                {$p->getPrix()},
+                                                 {$p->getQte()},
+                                                '{$p->getDesc()}',
+                                                '{$p->getImage()}',
+                                                {$p->getPromo()},
+                                            {$p->getCategorie()->getId()})";
+        $res = $this->pdo->exec($sql);
+        return $res;
     }
     function update(produit $p)
     {
+        $sql = "update produit set libelle='{$p->getLibelle()}',
+                                  prix={$p->getPrix()},
+                                  qte={$p->getQte()},
+                                  description='{$p->getDesc()}',
+                                  image='{$p->getImage()}',
+                                  promo={$p->getPromo()},
+                                  id_categorie={$p->getCategorie()->getId()}
+    
+                    where id={$p->getId()} ";
+        $res = $this->pdo->exec($sql);
+        return $res;
     }
 }
