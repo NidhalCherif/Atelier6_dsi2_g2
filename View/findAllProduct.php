@@ -26,6 +26,7 @@ if (isset($_GET['etat'])) {
             <th>Prix (DT)</th>
             <th>Quantité </th>
             <th>En Promo</th>
+            <th>Catégorie</th>
             <th>Action</th>
             <th></th>
             <th></th>
@@ -39,10 +40,11 @@ if (isset($_GET['etat'])) {
         <td>$produit[1]</td>
         <td>$produit[2]</td>
         <td>$produit[3]</td>
-        <td>$produit[6]</td>
-        <td><a href='delete_produit.php?id=$produit[0]'>Supprimer</a></td>
-        <td><a href='update_produit.php?id=$produit[0]'>Edit</a></td>
-        <td><a href='detail_produit.php?id=$produit[0]'>Voir détail...</a></td>
+        <td>$produit[4]</td>
+        <td>$produit[5]</td>
+        <td><a href='../controller/deleteProduct.php?id=$produit[0]'>Supprimer</a></td>
+        <td><a href='../contoller/update_produit.php?id=$produit[0]'>Edit</a></td>
+        <td><a href='../controller/detail_produit.php?id=$produit[0]'>Voir détail...</a></td>
            </tr>";
         }
 

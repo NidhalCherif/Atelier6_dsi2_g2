@@ -1,5 +1,8 @@
 <?php
 require_once "config/connexion.php";
+$objet = new connexion();
+$connexion = $objet->getConnexion();
+
 for ($i = 1; $i <= 100; $i++) {
     $libelle = "Produit n°$i";
     $prix = random_int(100, 3000);
@@ -11,8 +14,9 @@ for ($i = 1; $i <= 100; $i++) {
         asperiores ipsum illum assumenda soluta molestiae deleniti fugiat.";
     $image = "https://picsum.photos/300/?random=$i";
     $promo = random_int(0, 1);
+    $id_cat = random_int(1, 4);
     $sql = "insert into produit values(null,'$libelle',$prix,$qte,'$desc',
-            '$image',$promo)";
+            '$image',$promo,$id_cat)";
     $res = $connexion->exec($sql);
 }
-header("location:produits.php");
+header("location:controller/findAllProduct.php");
